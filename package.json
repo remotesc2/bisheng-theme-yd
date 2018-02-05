@@ -1,0 +1,52 @@
+{
+  "name": "bisheng-theme-yd",
+  "version": "1.1.7",
+  "main": "./theme/index.js",
+  "scripts": {
+    "start": "rimraf _site && node ./site/scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
+    "site": "rimraf _site && cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js && node ./site/scripts/generateColorLess.js",
+    "postinstall": "node lib/init.js",
+    "test": "node ./test/test.js"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "Firefox ESR",
+              "> 1%",
+              "ie >= 8",
+              "iOS >= 8",
+              "Android >= 4"
+            ]
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "antd": "^3.1.6",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "bisheng": "^0.28.2",
+    "bisheng-plugin-antd": "^0.16.3",
+    "bisheng-plugin-description": "^0.1.4",
+    "bisheng-plugin-react": "^0.6.3",
+    "bisheng-plugin-toc": "^0.4.4",
+    "chalk": "^2.3.0",
+    "cross-env": "^5.1.3",
+    "css-split-webpack-plugin": "^0.2.5",
+    "fs-extra": "^5.0.0",
+    "lz-string": "^1.4.4",
+    "react-copy-to-clipboard": "^5.0.1",
+    "react-document-title": "^2.0.3",
+    "react-intl": "^2.4.0",
+    "scrollama": "^1.3.0",
+    "yd-tools": "^1.7.2"
+  }
+}
