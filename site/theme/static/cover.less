@@ -61,29 +61,31 @@
           text-decoration: none;
           margin: 0 5px;
           font-weight: 600;
-      }
-      a.start{
-          background: #2a85ff;
-          border: 1px solid #2a85ff;
-          color: #fff;
-          box-shadow: 0 0 10px -3px #666;
-          transition: box-shadow .8s;
-          &:hover{
-              box-shadow: 0 0 29px -3px #666;
-              transition: box-shadow .8s;
-          }
-      }
-      a.github{
-          border: 1px solid #24292D;
-          background: #24292D;
           color: rgba(255,255,255,0.75);
-          box-shadow: 0 0 10px -3px #666;
-          transition: box-shadow .8s;
-          &:hover{
+
+          &.start {
+            background: #2a85ff;
+            border: 1px solid #2a85ff;
+            box-shadow: 0 0 10px -3px #666;
+            transition: box-shadow .8s;
+            &:hover{
               color: rgba(255,255,255,1);
               box-shadow: 0 0 29px -3px #666;
               transition: box-shadow .8s;
+            }
           }
+
+          &.github{
+            border: 1px solid #24292D;
+            background: #24292D;
+            box-shadow: 0 0 10px -3px #666;
+            transition: box-shadow .8s;
+            &:hover{
+              color: rgba(255,255,255,1);
+              box-shadow: 0 0 29px -3px #666;
+              transition: box-shadow .8s;
+            }
+        }
       }
   }
   .slogan{

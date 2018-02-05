@@ -2,7 +2,7 @@
 // https://github.com/WickyNilliams/enquire.js/issues/82
 let enquire;
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
+  const matchMediaPolyfill = (mediaQuery) => {
     return {
       media: mediaQuery,
       matches: false,
@@ -16,8 +16,8 @@ if (typeof window !== 'undefined') {
   enquire = require('enquire.js'); // eslint-disable-line global-require
 }
 
-function replaceAll(str, p1, p2){
-  return str.replace(new RegExp(p1,"gm"), p2);
+function replaceAll(str, p1, p2) {
+  return str.replace(new RegExp(p1, 'gm'), p2);
 }
 
 export function getMenuItems(moduleData, locale) {
@@ -42,7 +42,7 @@ export function getMenuItems(moduleData, locale) {
 }
 
 export function isZhCN(pathname) {
-  return /-cn\/?$/.test(pathname);
+  return (navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn' || /-cn\/?$/.test(pathname);
 }
 
 export function getLocalizedPathname(path, zhCN) {

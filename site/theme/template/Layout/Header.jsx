@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Badge, Button } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, AutoComplete, Input, Button } from 'antd';
 import * as utils from '../utils';
 
 const { Option } = AutoComplete;
-const searchEngine = 'Google';
-const searchLink = 'https://www.google.com/#q=site:ant.design+';
 
 export default class Header extends React.Component {
   static contextTypes = {
@@ -43,12 +41,13 @@ export default class Header extends React.Component {
     /* eslint-enable global-require */
   }
 
-  handleSearch = (value) => {
-    if (value === searchEngine) {
-      window.location.href = `${searchLink}${this.state.inputValue}`;
-      return;
-    }
+  onMenuVisibleChange = (visible) => {
+    this.setState({
+      menuVisible: visible,
+    });
+  }
 
+  handleSearch = (value) => {
     const { intl, router } = this.context;
     this.setState({
       inputValue: '',
@@ -76,16 +75,9 @@ export default class Header extends React.Component {
     });
   }
 
-  onMenuVisibleChange = (visible) => {
-    this.setState({
-      menuVisible: visible,
-    });
-  }
-
   handleSelectFilter = (value, option) => {
     const optionValue = option.props['data-label'];
-    return optionValue === searchEngine ||
-      optionValue.indexOf(value.toLowerCase()) > -1;
+    return optionValue.indexOf(value.toLowerCase()) > -1;
   }
 
   handleVersionChange = (url) => {
@@ -150,12 +142,6 @@ export default class Header extends React.Component {
         );
       });
 
-    options.push(
-      <Option key="searchEngine" value={searchEngine} data-label={searchEngine}>
-        <FormattedMessage id="app.header.search" />
-      </Option>
-    );
-
     const headerClassName = classNames({
       clearfix: true,
     });
@@ -177,7 +163,7 @@ export default class Header extends React.Component {
       </Select>,
       <Menu className="menu-site" mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+          <Link to="/">
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>

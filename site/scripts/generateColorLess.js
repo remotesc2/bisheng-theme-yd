@@ -86,9 +86,9 @@ less.render.call(less, content, {
   css = `${bezierEasing}\n${css}`;
   css = `@primary-color: #1890ff;\n${css}`;
 
-  const siteDir = path.resolve(__dirname, '../_site');
+  const siteDir = path.resolve(rootPath, '_site');
   if (!fs.existsSync(siteDir)) {
     fs.mkdirSync(siteDir);
   }
-  fs.writeFileSync(path.resolve(__dirname, '../_site/color.less'), css);
+  fs.writeFileSync(path.resolve(rootPath, '_site/color.less'), css);
 });
