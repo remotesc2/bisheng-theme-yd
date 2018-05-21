@@ -2,6 +2,10 @@
 
 学习 bisheng，学习 antd
 
+## [2018-05-21] 1.1.12
+
++ [refactor] 调整部分参数获取方式
+
 ## 命令说明
 
 `npm i bisheng-theme-yd -D` 安装完成以后，会自动生成 `start` 与 `site` 两个方法

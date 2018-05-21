@@ -2,7 +2,7 @@ const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 const replaceLib = require('yd-tools/lib/replaceLib');
 
-const { version } = require('../package.json');
+const { name, version } = require('../package.json');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
@@ -28,14 +28,6 @@ module.exports = {
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
-  htmlTemplateExtraData: {
-    title: 'yd',
-    icon: '',
-    config: '{"aaa": "bbb"}',
-    isDev,
-    usePreact,
-  },
-
   themeConfig: {
     typeOrder: {
       General: 0,
@@ -69,8 +61,8 @@ module.exports = {
   },
   webpackConfig(config) {
     config.resolve.alias = {
-      'yd/lib': path.join(process.cwd(), 'components'),
-      yd: path.join(process.cwd(), 'index'),
+      [`${name}/lib`]: path.join(process.cwd(), 'components'),
+      [name]: path.join(process.cwd(), 'index'),
       'react-router': 'react-router/umd/ReactRouter',
     };
 

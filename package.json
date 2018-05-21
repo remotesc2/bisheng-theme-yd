@@ -1,6 +1,6 @@
 {
   "name": "bisheng-theme-yd",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "main": "./theme/index.js",
   "scripts": {
     "start": "rimraf _site && node ./site/scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
